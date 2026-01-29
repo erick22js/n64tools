@@ -1,0 +1,11 @@
+TO DISASSEMBLE:
+asm -d infile outfile [-b 0xbaseaddress] [-r outsymbols] [-l [insymbols]]
+
+ex:
+asm -d code.bin code.asm -b 0x80012030 -r syms2.bin -l syms.bin
+
+TO ASSEMBLE:
+asm -a infile outfile [-b 0xbaseaddress] [-r outsymbols] [-l [insymbols]]
+
+ex:
+asm -a code.asm out.bin -b 0x80012030 -r syms2.bin -l syms.bin

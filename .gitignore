@@ -1,0 +1,7 @@
+*.z64
+*.bin
+*.asm
+*.exe
+n64tools/gekit/_data/
+.vs/
+x64/
