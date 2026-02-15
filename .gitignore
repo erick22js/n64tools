@@ -3,5 +3,6 @@
 *.asm
 *.exe
 n64tools/gekit/_data/
+n64tools/tools/recomp/data/
 .vs/
 x64/

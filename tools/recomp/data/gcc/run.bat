@@ -1,0 +1,1 @@
+gcc "../main.c" "../recomp.c" -o "out.exe"

@@ -124,9 +124,11 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="src\main.c" />
+    <ClCompile Include="src\zip\puff.c" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\decompress.h" />
+    <ClInclude Include="src\zip\puff.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

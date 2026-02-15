@@ -3,6 +3,7 @@
 #include <string.h>
 
 #include "util/goldutils.h"
+#include "zip/puff.h"
 
 
 // ROM DATA
@@ -50,15 +51,24 @@ Segment segs[SEG__TYPES_COUNT__] = {
 	{ "header", SEG_HEADER, 0x0, 0x40 },
 	//{ "boot_code", SEG_BOOT_CODE, 0x40, 0xFC0 },
 	{ "code1", SEG_CODE1, 0x1000, 0x20990 }, // mapped to 0x70000400
-	{ "code2", SEG_CODE2, 0x33590, 0x15A0 }, // RareZip, mapped to 0x70200000...0x70201474
+	{ "code2", SEG_CODE2, 0x33590, 0x1474 }, // RareZip, mapped to 0x70200000...0x70201474
 	{ "code3", SEG_CODE3, 0x34B30, 0xE2D50 }, // mapped to 0x7F000000
 };
 
+u8 unzipdata[1024*1024*12] = { 0 };
+u32 unzipdata_length = 0;
+
 int ripSegments(){
+	label:;
+	printf("A");
+	goto label;
 	for (int s = 0; s < SEG__TYPES_COUNT__; s++){
+		u8* data = rom.data + segs[s].in_rom_offset;
+		u32 data_length = segs[s].in_rom_length;
+		
 		char out_path[256]; sprintf(out_path, "D:/documentos/meus-projetos/misc/n64tools/gekit/_data/out/%s.bin", segs[s].name);
 		FILE *out = fopen(out_path, "wb");
-		fwrite(rom.data + segs[s].in_rom_offset, 1, segs[s].in_rom_length, out);
+		fwrite(data, 1, data_length, out);
 		fclose(out);
 	}
 }
